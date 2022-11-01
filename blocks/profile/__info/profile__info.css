@@ -1,0 +1,19 @@
+.profile__info{   
+    margin-block: 0;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+
+}
+@media screen and (max-width: 1000px){  
+.profile__info{
+    font-size: 16px;
+line-height: 14px;
+}}
+@media screen and (max-width: 440px){ 
+.profile__info{
+    font-size: 14px;
+line-height: 17px;
+}}

@@ -1,0 +1,8 @@
+@media screen and (max-width: 680px){    
+.header__logo{
+    padding: 35px 0 0 35px;
+}}
+@media screen and (max-width: 440px){   
+.header__logo{
+    padding: 28px 0 0 28px;
+}}

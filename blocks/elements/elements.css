@@ -1,0 +1,8 @@
+.elements{
+    max-width: 880px;
+    margin: 0 auto;
+}
+@media screen and (max-width: 440px){       
+.elements{
+    padding-top: 36px;
+}}
