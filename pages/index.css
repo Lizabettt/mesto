@@ -1,8 +1,7 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
 
-@import url(../blocks/popup/__opened/popup__opened.css);
-@import url(../blocks/popup/__shadow-active/popup__shadow-active.css);
+
 
 @import url(../blocks/page/page.css);
 
@@ -44,3 +43,6 @@
 @import url(../blocks/popup/popup.css);
 
 @import url(../blocks/footer/__text/footer__text.css);
+
+@import url(../blocks/popup/__opened/popup__opened.css);
+@import url(../blocks/popup/__shadow-active/popup__shadow-active.css);
