@@ -9,6 +9,9 @@
     background: none;
     cursor: pointer;
 }
+.popup__btn-close:hover{
+    opacity: 0.6;
+}
 @media screen and (max-width: 440px){    
 .popup__btn-close{
     right: -6px;   

@@ -5,3 +5,7 @@
     background-color: inherit;
     cursor: pointer;
 }
+.profile__change-name:hover{
+    opacity: 0.6;
+    transition: .6s ease;
+}

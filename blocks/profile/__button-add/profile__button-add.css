@@ -9,6 +9,10 @@
     background-color: #000000;
     cursor: pointer;       
 }
+.profile__button-add:hover{
+    opacity: 0.6;
+    transition: .5s ease;
+}
 @media screen and (max-width: 680px){
 .profile__button-add{
     width: 80%;
