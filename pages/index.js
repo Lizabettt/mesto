@@ -13,14 +13,14 @@
     let btnSave= document.querySelector('.popup__btn-save'); 
 
 function openPopup() {
-    popup.classList.add('popup_opened');
+    popup.classList.add('popup__opened');
     shadow.classList.add('popup__shadow-active');
     nameInput.value = nameProfil.textContent;
     jobInput.value = jobProfil.textContent;
 }; 
 
 function closePopup() {
-    popup.classList.remove('popup_opened');
+    popup.classList.remove('popup__opened');
     shadow.classList.remove('popup__shadow-active');
 };
 
