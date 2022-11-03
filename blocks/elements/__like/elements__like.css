@@ -1,10 +1,12 @@
 .elements__like{
     background-image: url(../../../images/serdce.svg);
+    background-color: white;
     width: 22px;
     height: 19px;
     border: none;
+    
+    transition: .6s ease;
 }
 .elements__like:hover{
-    opacity: 0.5;
-    transition: .6s ease;
+    opacity: 0.5;    
 }

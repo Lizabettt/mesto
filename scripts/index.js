@@ -12,16 +12,16 @@
     let btnSave= document.querySelector('.popup__btn-save'); 
 
 function openPopup() {
-    popup.classList.add('popup__opened');
+    popup.classList.add('popup_opened');
     nameInput.value = nameProfil.textContent;
     jobInput.value = jobProfil.textContent;
 }; 
 
 function closePopup() {
-    popup.classList.remove('popup__opened');
+    popup.classList.remove('popup_opened');
 };
 
-function foolproof(){
+/*function foolproof(){
     if 
     (!nameInput.value) alert('Заполните поле "Имя пользователя"');
     else if 
@@ -29,13 +29,13 @@ function foolproof(){
     else 
     nameProfil.textContent = nameInput.value;
     jobProfil.textContent = jobInput.value;
-    closePopup(); 
-}
-// Обработчик «отправки» формы, она никуда отправляться не будет пока
+
+}*/
+
 function formSubmitHandler (evt) {
     evt.preventDefault(); // отмен. станд. отправку формы.   
 
-    foolproof(); 
+    //foolproof(); 
     closePopup(); 
 };
 

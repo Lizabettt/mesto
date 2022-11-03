@@ -1,12 +1,13 @@
 .header{
-    padding: 45px 200px 40px 200px;
+    margin: 45px 200px 40px 200px;
     height: 74px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-bottom: 1px solid #545454;
 }
 @media screen and (max-width: 680px){
 .header{
-    padding: 0;
+    margin: 0;
     height: 84px;
 }}

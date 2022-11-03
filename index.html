@@ -10,21 +10,20 @@
 <body class="page">
     <header class="header">
         <a href="#" class="header__logo">
-            <img class="header__logo-pic" src="./images/logo.svg" alt="">
+            <img class="header__logo-pic" src="./images/logo.svg" alt="Логотип">
         </a>
-        <div class="header__line"></div>
     </header>
     <main class="main">
         <section class="profile">
             <img class="profile__foto" src="./images/kusto.jpg" alt="Аватар">
             <div class="profile__name-box">            
                 <h1 class="profile__title">Жак-Ив Кусто</h1>
-                <button class="profile__change-name">
+                <button class="profile__change-name" type="button">
                     <img class="profile__change-name-pic" src="./images/change.svg" alt="Изменить">
                 </button>
                 <p class="profile__info">Исследователь океана</p>
             </div>            
-            <button class="profile__button-add">
+            <button class="profile__button-add" type="button">
                 <img src="./images/add.svg" alt="Добавить">
             </button>
         </section>
@@ -34,65 +33,65 @@
                     <img class="elements__pic" src="./images/eagle.jpg" alt="Парящий орёл">
                     <div class="elements__box">
                         <h2 class="elements__title">Парящий орёл</h2>
-                        <button class="elements__like"></button>
+                        <button class="elements__like" type="button"></button>
                     </div>
                 </li>
                 <li class="elements__card">
                     <img class="elements__pic" src="./images/elephants.jpg" alt="Слоны">
                     <div class="elements__box">
                         <h2 class="elements__title">Слоны</h2>
-                        <button class="elements__like"></button>
+                        <button class="elements__like" type="button"></button>
                     </div>
                 </li>
                 <li class="elements__card">
                     <img class="elements__pic" src="./images/fox.jpg" alt="Лиса">
                     <div class="elements__box">
                         <h2 class="elements__title">Лисица</h2>
-                        <button class="elements__like"></button>
+                        <button class="elements__like" type="button"></button>
                     </div>
                 </li>
                 <li class="elements__card">
                     <img class="elements__pic" src="./images/giraffe.jpg" alt="Жираф">
                     <div class="elements__box">
                         <h2 class="elements__title">Жираф</h2>
-                        <button class="elements__like"></button>
+                        <button class="elements__like" type="button"></button>
                     </div>
                 </li>
                 <li class="elements__card">
                     <img class="elements__pic" src="./images/monkey.jpg" alt="Обезьянка">
                     <div class="elements__box">
                         <h2 class="elements__title">Обезьянка</h2>
-                        <button class="elements__like"></button>
+                        <button class="elements__like" type="button"></button>
                     </div>
                 </li>
                 <li class="elements__card">
                     <img class="elements__pic" src="./images/owl.jpg" alt="Сова">
                     <div class="elements__box">
                         <h2 class="elements__title">Совушка</h2>
-                        <button class="elements__like"></button>
+                        <button class="elements__like" type="button"></button>
                     </div>
                 </li>
             </ul>
-        </section>
-        <section class="popup">
-            <div class="popup__container">
-                <button class="popup__btn-close">
-                    <img class="popup__btn-close-pic" src="./images/Close_Icon.png" alt="Закрыть">
-                </button>
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form" action="popup__form" >
-                    <fieldset class="popup__form-input">
-                        <input class="popup__name" id="popupName" type="text" placeholder="Имя пользователя" name="nameUser">
-                        <input class="popup__job" id="popupJob" type="text" placeholder="Вид деятельности" name="jobUser">
-                    </fieldset>
-                    <button class="popup__btn-save" type="submit">Сохранить</button>
-                </form>
-            </div>
-        </section>       
+        </section>            
     </main>
     <footer class="footer">
         <p class="footer__text">© 2022 Mesto Russia</p>
-    </footer>    
-    <script src="./pages/index.js"></script>    
+    </footer>
+    <div class="popup">
+        <div class="popup__container">
+            <button class="popup__btn-close" type="button">
+                <img class="popup__btn-close-pic" src="./images/Close_Icon.png" alt="Закрыть">
+            </button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form" action="popup__form" name="popup__form" method="post">
+                <fieldset class="popup__form-input">
+                    <input class="popup__input" id="popupName" type="text" placeholder="Имя пользователя" name="nameUser">
+                    <input class="popup__input" id="popupJob" type="text" placeholder="Вид деятельности" name="jobUser">
+                </fieldset>
+                <button class="popup__btn-save" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>       
+    <script src="./scripts/index.js"></script>    
 </body>
 </html>
