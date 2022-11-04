@@ -6,6 +6,10 @@
     line-height: 22px;
     color: #FFFFFF;
 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 380px;
 }
 @media screen and (max-width: 1000px){  
 .profile__info{

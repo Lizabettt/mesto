@@ -4,8 +4,11 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 50px;
+    width: 358px;
 }
-@media screen and (max-width: 440px){    
+
+@media screen and (max-width: 680px){    
 .popup__form {
     padding-top: 70px;
+    width: auto;
 }}

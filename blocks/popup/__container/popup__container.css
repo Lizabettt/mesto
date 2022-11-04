@@ -22,7 +22,7 @@
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     position: relative;
 
-    animation: popup 5s forwards;  
+    animation: popup 3s forwards;  
 }
 @media screen and (max-width: 440px){   
     
