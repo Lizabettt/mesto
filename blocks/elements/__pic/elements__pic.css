@@ -5,7 +5,7 @@
     object-fit: cover;
     transition: .8s ease;       
 }
-.elements__pic:hover{
+/*.elements__pic:hover{
     opacity: 0.8;
     scale: 1.1;
     

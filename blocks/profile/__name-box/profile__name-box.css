@@ -1,4 +1,5 @@
 .profile__name-box{
+    max-width: 500px;
     padding-left: 33px;
 
     display: grid;

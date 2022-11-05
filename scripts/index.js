@@ -1,12 +1,12 @@
 let formElement = document.querySelector('.popup__form');
-let nameInput = document.querySelector('.popup__input-name');
-let jobInput = document.querySelector('.popup__input-job');
+let nameInput = document.querySelector('.popup__input_type_name');
+let jobInput = document.querySelector('.popup__input_type_job');
 let nameProfil = document.querySelector('.profile__title');
 let jobProfil = document.querySelector('.profile__info');
 let btnChangeName = document.querySelector('.profile__change-name');
 let btnClose = document.querySelector('.popup__btn-close');
 let popup = document.querySelector('.popup');
-let btnSave = document.querySelector('.popup__btn-save');
+//let btnSave = document.querySelector('.popup__btn-save');
 
 
 //ОТКРЫТИЕ
@@ -16,6 +16,10 @@ function openedPopup() {
     nameInput.value = nameProfil.textContent;
     jobInput.value = jobProfil.textContent;
 }; 
+//ЗАКРЫТИЕ
+function closedPopup() {
+    popup.classList.remove('popup_opened');
+};
 
 //ОБРАБОТКА ФОРМЫ
 function formSubmitHandler (evt) {
@@ -23,17 +27,14 @@ function formSubmitHandler (evt) {
     //в форме значение со страницы заменяется на введеное вручную значение
     nameProfil.textContent = nameInput.value;
     jobProfil.textContent = jobInput.value;
-};
-//ЗАКРЫТИЕ
-function closedPopup() {
-    popup.classList.remove('popup_opened');
+    closedPopup();
 };
 
 //ЗАПУСК ФУНКЦИЙ
 btnChangeName.addEventListener('click', openedPopup);
 btnClose.addEventListener('click', closedPopup);
 formElement.addEventListener('submit', formSubmitHandler);  
-btnSave.addEventListener('click', closedPopup);
+//btnSave.addEventListener('click', closedPopup);
 
  
   /* НЕ РАБОТАЕТ ПОКА

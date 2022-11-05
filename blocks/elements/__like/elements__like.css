@@ -4,7 +4,7 @@
     min-width: 22px;
     height: 19px;
     border: none;
-    
+    cursor: pointer;
     transition: .6s ease;
 }
 .elements__like:hover{

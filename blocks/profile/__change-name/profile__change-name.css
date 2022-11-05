@@ -1,7 +1,10 @@
-.profile__change-name{
+.profile__change-name{    
     padding: 0;
     border: none;
-   
+
+    width: 24px;
+    height: 24px;
+    
     background-color: inherit;
     cursor: pointer;
     transition: .6s ease;
