@@ -1,6 +1,6 @@
 .profile__name-box{
     max-width: 500px;
-    padding-left: 33px;
+    padding-left: 30px;
 
     display: grid;
     grid-template-columns: minmax(max-content, 1fr) 1fr;
@@ -19,6 +19,5 @@
 @media screen and (max-width: 440px){       
 .profile__name-box{
     padding: 26px 0 34px 48px;
-    gap: 7px 0;
     justify-items: center;
 }}
