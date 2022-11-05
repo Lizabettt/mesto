@@ -3,10 +3,9 @@
     height: 282px;
     border-radius: 10px 10px 0 0;
     object-fit: cover;
-    transition: .8s ease;       
+          
 }
 /*.elements__pic:hover{
     opacity: 0.8;
-    scale: 1.1;
-    
-}
+    scale: 1.1;   transition: .8s ease; 
+}*/
