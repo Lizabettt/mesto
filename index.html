@@ -29,69 +29,64 @@
         </section>
         <section class="elements">
             <ul class="elements__grid">
-                <li class="elements__card">
-                    <img class="elements__pic" src="./images/eagle.jpg" alt="Парящий орёл">
-                    <div class="elements__box">
-                        <h2 class="elements__title">Парящий орёл</h2>
-                        <button class="elements__like" type="button"></button>
-                    </div>
-                </li>
-                <li class="elements__card">
-                    <img class="elements__pic" src="./images/elephants.jpg" alt="Слоны">
-                    <div class="elements__box">
-                        <h2 class="elements__title">Слоны</h2>
-                        <button class="elements__like" type="button"></button>
-                    </div>
-                </li>
-                <li class="elements__card">
-                    <img class="elements__pic" src="./images/fox.jpg" alt="Лиса">
-                    <div class="elements__box">
-                        <h2 class="elements__title">Лисица</h2>
-                        <button class="elements__like" type="button"></button>
-                    </div>
-                </li>
-                <li class="elements__card">
-                    <img class="elements__pic" src="./images/giraffe.jpg" alt="Жираф">
-                    <div class="elements__box">
-                        <h2 class="elements__title">Жираф</h2>
-                        <button class="elements__like" type="button"></button>
-                    </div>
-                </li>
-                <li class="elements__card">
-                    <img class="elements__pic" src="./images/monkey.jpg" alt="Обезьянка">
-                    <div class="elements__box">
-                        <h2 class="elements__title">Обезьянка</h2>
-                        <button class="elements__like" type="button"></button>
-                    </div>
-                </li>
-                <li class="elements__card">
-                    <img class="elements__pic" src="./images/owl.jpg" alt="Сова">
-                    <div class="elements__box">
-                        <h2 class="elements__title">Совушка</h2>
-                        <button class="elements__like" type="button"></button>
-                    </div>
-                </li>
+                <template id="elements-template">
+                    <li class="elements__card">
+                        <img class="elements__pic" src="#" alt="#">
+                        <button class="elements__basket" type="button"></button>
+                        <div class="elements__box">
+                            <h2 class="elements__title"></h2>
+                            <button class="elements__like" type="button"></button>
+                        </div>
+                    </li>
+                </template>
             </ul>
         </section>            
     </main>
     <footer class="footer">
         <p class="footer__text">© 2022 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_type-person">
         <div class="popup__container">
             <button class="popup__btn-close" type="button">
                 <img class="popup__btn-close-pic" src="./images/Close_Icon.png" alt="Закрыть">
             </button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" action="popup__form" name="popup__name" method="post">
+            <form class="popup__form popup__form_type-person" action="popup__form" name="popup__name" method="post">
                 <fieldset class="popup__form-input">
                     <input class="popup__input popup__input_type_name" id="popupName" type="text" placeholder="Имя пользователя" name="nameUser">
                     <input class="popup__input popup__input_type_job" id="popupJob" type="text" placeholder="Вид деятельности" name="jobUser">
                 </fieldset>
-                <button class="popup__btn-save" type="submit">Сохранить</button>
+                <button class="popup__btn popup__btn-save" type="submit">Сохранить</button>
             </form>
         </div>
-    </div>       
+    </div>
+    <div class="popup popup_type-add-new-card">
+        <div class="popup__container">
+            <button class="popup__btn-close" type="button">
+                <img class="popup__btn-close-pic" src="./images/Close_Icon.png" alt="Закрыть">
+            </button>
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form popup__form_type-add-new-card" action="popup__form" name="popup__name" method="post">
+                <fieldset class="popup__form-input">
+                    <input class="popup__input popup__input_type_name-place" id="popupNamePlace" type="text" placeholder="Название" name="namePlace">
+                    <input class="popup__input popup__input_type_link-place" id="popupLinkPlace" type="text" placeholder="Ссылка на картинку" name="linkPlace">
+                </fieldset>
+                <button class="popup__btn popup__btn-create" type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
+    <div class="popup popup_type-img">
+        
+            
+            <figure class="popup__img-box">
+                <img class="popup__img-max" src="#" alt="#">
+                <figcaption class="popup__img-title"></figcaption>
+                <button class="popup__btn-close" type="button">
+                <img class="popup__btn-close-pic" src="./images/Close_Icon.png" alt="Закрыть">
+            </button>
+            </figure>            
+        
+    </div>
     <script src="./scripts/index.js"></script>    
 </body>
 </html>

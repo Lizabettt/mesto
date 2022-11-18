@@ -1,13 +1,15 @@
 @keyframes popup { 
 0% {
-    top:-100%;
+    top:-200%;
     opacity: 0;
     transform: translateY(-150%);
+    scale: 0;
 }
 100% {  
     top: 0;
     opacity: 1;
-    transform: translate(0, 0);  
+    transform: translate(0, 0); 
+    scale: 1; 
 }
 }
 
