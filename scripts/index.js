@@ -13,7 +13,7 @@ const jobProfil = document.querySelector('.profile__info');
 const namePlaceInput = document.querySelector('.popup__input_type_name-place');
 const linkPlaceInput = document.querySelector('.popup__input_type_link-place');
 
-const btnsClose = document.querySelectorAll('.popup__btn-close');
+const closeBtns = document.querySelectorAll('.popup__btn-close');
 const btnChangeName = document.querySelector('.profile__change-name');
 const btnAddCard = document.querySelector('.profile__button-add');
 
@@ -51,37 +51,33 @@ const initialCards = [
 ];
 
 //ОТКРЫТИЕ ПОПАПА
-function openedPopup(namePopup) {
+function openPopup(namePopup) {
     namePopup.classList.add('popup_opened');
 }; 
 
 //ЗАКРЫТИЕ ПОПАПА
-function closedPopup(namePopup) {
+function closePopup(namePopup) {
     namePopup.classList.remove('popup_opened');    
 };
-btnsClose.forEach((button) => {
+closeBtns.forEach((button) => {
     const popup = button.closest('.popup');
-    button.addEventListener('click', () => closedPopup(popup));
+    button.addEventListener('click', () => closePopup(popup));
 
 });
 
-//ИМЯ ПОЛЬЗОВАТЕЛЯ В ФОРМЕ ПОПАПА ПРИ ОТКРЫТИИ
-function addOldPersonNameInInput() {
+//ОТКРЫТИЕ ПОПАПА ПРОФИЛЯ
+function openProfilePopup() {
     nameInput.value = nameProfil.textContent;
     jobInput.value = jobProfil.textContent;
-    openedPopup(popupPerson);
+    openPopup(popupPerson);
 };
 
-//ОЧИЩЕНИЕ ФОРМЫ ПРИ ОТКРЫТИИИ ДОБАВЛЕНИЯ КАРТОЧКИ
-function cleanFormAddNewCard() {
-    namePlaceInput.value = '';
-    linkPlaceInput.value = '';
-    openedPopup(popupNewCard);
+//ОТКРЫТИЕ ПОПАПА ДОБАВЛЕНИЯ НОВОЙ КАРТОЧКИ
+function addNewCard() {
+     openPopup(popupNewCard);
 };
 
 //КАРТОЧКИ
-
-
 //удаление карточки
 const deleteCard = (evt) => {
     evt.target.closest('.elements__card').remove();
@@ -89,11 +85,11 @@ const deleteCard = (evt) => {
 
 //лайк карточке
 const likeCard = (evt) => {
-    evt.target.closest('.elements__like').classList.toggle('elements__like-add');
+    evt.target.classList.toggle('elements__like-add');
 }
 
 //создание новой карточки по образцу из "коробки"
-const collectCard = (infoCard) => {
+const createCard = (infoCard) => {
 
     const newCard = templateCard.cloneNode(true);// клонирование templateCard со всем содержимым
     const titleCard = newCard.querySelector('.elements__title');
@@ -105,65 +101,63 @@ const collectCard = (infoCard) => {
     imgCard.src = infoCard.link;
     imgCard.alt = infoCard.name;
      
-    function seeMaxImgCard() {
+    function openImagePopup() {
           
         imgMaxCard.src = imgCard.src;
         imgMaxCard.alt = imgCard.alt ;
         titleMaxCard.textContent = titleCard.textContent  ;
 
-        openedPopup(popupImgMax);
+        openPopup(popupImgMax);
     };
 
     btnDelCard.addEventListener('click', deleteCard);
     btnAddLike.addEventListener('click', likeCard);
-    imgCard.addEventListener('click',seeMaxImgCard);
+    imgCard.addEventListener('click',openImagePopup);
 
     return newCard;
 }
 
 //покажи карточку
 const renderCard = (infoCard) => {
-    cardBox.prepend(collectCard(infoCard)); 
+    cardBox.prepend(createCard(infoCard)); 
 };
 
 //рендер (отображение) всех карточек
-initialCards.forEach((infoCard) => {
-    renderCard(infoCard);
-});
+initialCards.forEach(renderCard);
 
 //ОБРАБОТКА ФОРМ 
 
 // обработка формы пользователя
 
-function processingFormChangePerson (evt) {
+function handleFormChangePerson (evt) {
     evt.preventDefault(); // отмен. станд. отправку формы.
     
     nameProfil.textContent = nameInput.value;//в форме значение со страницы заменяется на введеное вручную значение
     jobProfil.textContent = jobInput.value;
     
-    closedPopup(popupPerson);   
+    closePopup(popupPerson);   
 };
 
 //обработка формы карточки
 
-function processingFormAddCard (evt) {
+function handleFormAddCard (evt) {
     evt.preventDefault();
 
     const infoCard = {
         name: namePlaceInput.value,
         link: linkPlaceInput.value
     } 
-
+    evt.target.reset();
     renderCard(infoCard);
-    closedPopup(popupNewCard);    
+    closePopup(popupNewCard);    
 };
 
 //ЗАПУСК ФУНКЦИЙ
 
-btnChangeName.addEventListener('click',addOldPersonNameInInput);
-btnAddCard.addEventListener('click', cleanFormAddNewCard);
-formChangePerson.addEventListener('submit', processingFormChangePerson);
-formAddNewCard.addEventListener('submit', processingFormAddCard);
+btnChangeName.addEventListener('click',openProfilePopup);
+btnAddCard.addEventListener('click', addNewCard);
+formChangePerson.addEventListener('submit', handleFormChangePerson);
+formAddNewCard.addEventListener('submit',handleFormAddCard);
 
 
 //закрытие по тени
