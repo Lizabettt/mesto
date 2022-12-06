@@ -1,3 +1,4 @@
+
 const popupPerson = document.querySelector('.popup_type-person');
 const popupNewCard = document.querySelector('.popup_type-add-new-card');
 const popupImgMax = document.querySelector('.popup_type-img');
@@ -59,11 +60,31 @@ function openPopup(namePopup) {
 function closePopup(namePopup) {
     namePopup.classList.remove('popup_opened');    
 };
+
+//закрытие по кнопке
 closeBtns.forEach((button) => {
     const popup = button.closest('.popup');
     button.addEventListener('click', () => closePopup(popup));
 
 });
+
+//закрытие по эскейпу
+function closeEsc(evt) {
+    if (evt.keyCode === 27) {
+        const popupOpen = document.querySelector('.popup_opened')
+        closePopup(popupOpen);    
+    } 
+};
+
+//закрытие по оверлею
+function closedPopupClickShadow(evt) {
+    if (evt.target.classList.contains('popup_opened')) {
+        const popupOpen = document.querySelector('.popup_opened')
+        closePopup(popupOpen); 
+    }
+    
+};
+
 
 //ОТКРЫТИЕ ПОПАПА ПРОФИЛЯ
 function openProfilePopup() {
@@ -158,10 +179,5 @@ btnChangeName.addEventListener('click',openProfilePopup);
 btnAddCard.addEventListener('click', addNewCard);
 formChangePerson.addEventListener('submit', handleFormChangePerson);
 formAddNewCard.addEventListener('submit',handleFormAddCard);
-
-
-//закрытие по тени
-//window.addEventListener('click', closedPopupClickShadow);
-// const closedPopupClickShadow = (evt) => {
-//     evt.target.closest('.popup').remove('popup_opened');
-// }
+document.addEventListener('click', closedPopupClickShadow);//убирать обработчик?
+document.addEventListener("keydown", closeEsc); 
