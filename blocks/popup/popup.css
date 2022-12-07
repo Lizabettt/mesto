@@ -16,5 +16,6 @@
 
     opacity: 0;
     visibility: hidden;    
-     
+    
+    transition: .5s ease all;
 }

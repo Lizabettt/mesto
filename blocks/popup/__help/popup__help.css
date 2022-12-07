@@ -7,4 +7,12 @@
 
     opacity: 0;
     visibility: hidden;
+
+    height: 30px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+.popup__help:last-child{
+    top: 90px;
 }
