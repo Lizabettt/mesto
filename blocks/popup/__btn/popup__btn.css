@@ -20,6 +20,13 @@
     opacity: 0.8;
     transition: .5s ease;
 }
+.popup__btn:disabled{ 
+    background-color: #FFF;
+    color: #000;
+    border: 1px solid #000;
+    opacity: .2;
+    cursor: no-drop;
+}
 @media screen and (max-width: 440px){    
 .popup__btn{
     height: 46px;
