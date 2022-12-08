@@ -30,6 +30,7 @@ const templateCard = document
 //ОТКРЫТИЕ ПОПАПА
 function openPopup(namePopup) {
   namePopup.classList.add("popup_opened");
+  document.addEventListener("keydown", handleCloseByEscapePush);
 }
 
 //ЗАКРЫТИЕ ПОПАПА
@@ -159,4 +160,3 @@ formAddNewCard.addEventListener("submit", handleFormAddCardSubmit);
 popupProfile.addEventListener("click", handleCloseByOverlayClick);
 popupNewCard.addEventListener("click", handleCloseByOverlayClick);
 popupImgMax.addEventListener("click", handleCloseByOverlayClick);
-document.addEventListener("keydown", handleCloseByEscapePush);
