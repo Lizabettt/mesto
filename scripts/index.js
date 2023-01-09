@@ -1,5 +1,5 @@
 import Card from "./Card.js";
-import initialCards from "./cards.js";
+import {initialCards, validationConfig} from "./constants.js";
 import FormValidator from "./FormValidator.js";
 
 const popupProfile = document.querySelector(".popup_type-profile");
@@ -22,14 +22,13 @@ const linkPlaceInput = document.querySelector(".popup__input_type_link-place");
 const closeBtns = document.querySelectorAll(".popup__btn-close");
 const btnChangeName = document.querySelector(".profile__change-name");
 const btnAddCard = document.querySelector(".profile__button-add");
-const btnCreate = document.querySelector(".popup__btn-create");
 
 const cardBox = document.querySelector(".elements__grid");
 
 
-//ОТКРЫТИЕ ПОПАПА
-function openPopup(namePopup) {
-  namePopup.classList.add("popup_opened");
+//ОТКРЫТИЕ ПОПАПА 
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
   document.addEventListener("keydown", handleCloseByEscapePush);
 }
 //ОТКРЫТИЕ ПОПАПА ПРОФИЛЯ
@@ -42,8 +41,9 @@ function openProfilePopup() {
 //ОТКРЫТИЕ ПОПАПА ДОБАВЛЕНИЯ НОВОЙ КАРТОЧКИ
 function openAddCardPopup() {
   openPopup(popupNewCard);
-  btnCreate.disabled = true;
+  validFormAddNewCard.disableSubmitButton();
 }
+
 //ОТКЫТИЕ ПОПАПА КАРТИНКИ
 function openImagePopup(name, picture) {
   popupImgTitle.textContent = name;
@@ -54,8 +54,8 @@ function openImagePopup(name, picture) {
 }
 
 //ЗАКРЫТИЕ ПОПАПА
-function closePopup(namePopup) {
-  namePopup.classList.remove("popup_opened");
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
   document.removeEventListener("keydown", handleCloseByEscapePush);
 }
 
@@ -68,8 +68,8 @@ closeBtns.forEach((button) => {
 //закрытие по эскейпу
 function handleCloseByEscapePush(evt) {
   if (evt.key === "Escape") {
-    const popupOpen = document.querySelector(".popup_opened");
-    closePopup(popupOpen);
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
   }
 }
 
@@ -127,14 +127,7 @@ popupProfile.addEventListener("click", handleCloseByOverlayClick);
 popupNewCard.addEventListener("click", handleCloseByOverlayClick);
 popupImgMax.addEventListener("click", handleCloseByOverlayClick);
 
-// объект форм
-const validationConfig = {
-  formPopup: ".popup__form",
-  inputFormPopup: ".popup__input",
-  buttonSubmit: ".popup__btn",
-  inputError: "popup__input_type_error",
-  errorClassVisible: "popup__error_visible",
-};
+
 
 //валидация улетает на класс с конструктором
 const validFormChangeProfile = new FormValidator(
@@ -143,5 +136,8 @@ const validFormChangeProfile = new FormValidator(
 );
 validFormChangeProfile.enableValidation();
 
-const validFormAddNewCard = new FormValidator(validationConfig, formAddNewCard);
+const validFormAddNewCard = new FormValidator(
+  validationConfig, 
+  formAddNewCard);
+
 validFormAddNewCard.enableValidation();

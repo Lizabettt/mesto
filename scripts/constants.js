@@ -25,4 +25,12 @@ const initialCards = [
   },
 ];
 
-export default initialCards;
+const validationConfig = {
+  formPopup: ".popup__form",
+  inputFormPopup: ".popup__input",
+  buttonSubmit: ".popup__btn",
+  inputError: "popup__input_type_error",
+  errorClassVisible: "popup__error_visible",
+};
+
+export {initialCards, validationConfig} ;

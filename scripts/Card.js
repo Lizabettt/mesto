@@ -36,7 +36,7 @@ class Card {
   //метод лайка карточки
   _likeCard() {
     this._elementsLike.classList.toggle("elements__like-add");
-  }
+   }
   
   //метод обработчики событий
   _setEventListeners() {
@@ -46,8 +46,7 @@ class Card {
       this._elementsLike.addEventListener("click", () => this._likeCard());
       this._elementsPic.addEventListener("click", () => this._openImagePopup(this._name, this._picture));
   }
-
-  //публичный метод сбора новой карточки
+   //публичный метод сбора новой карточки
   createCard() {
     this._setData();
     this._setEventListeners();

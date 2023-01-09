@@ -42,7 +42,7 @@ class FormValidator {
   //метод активности кнопки попапа
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
-      this._buttonSubmit.disabled = true;
+      this.disableSubmitButton();
     } else {
       this._buttonSubmit.disabled = false;
     }
@@ -65,6 +65,11 @@ class FormValidator {
         this._toggleButtonState(this._inputList, this._buttonForm);
       });
     });
+  }
+  
+  //публичный метод
+  disableSubmitButton(){
+    this._buttonSubmit.disabled = true;
   }
   //публичный метод
   enableValidation() {
