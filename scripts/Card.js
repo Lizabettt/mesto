@@ -1,11 +1,14 @@
-import { openPopup, popupImgMax } from "./index.js";
-
 class Card {
-  constructor(dataObject, templateSelector) {
+  constructor(dataObject, templateSelector, openImagePopup) {
     this._name = dataObject.name;
     this._picture = dataObject.link;
     this._templateSelector = templateSelector;
-  }
+    this._openImagePopup = openImagePopup;
+    this._newCard = this._getTemplateCard();
+    this._elementsPic = this._newCard.querySelector(".elements__pic");
+    this._elementsLike = this._newCard.querySelector(".elements__like");    
+ }
+
   //метод возврата разметки карточки /шаблон/
   _getTemplateCard() {
     const templateCard = document
@@ -14,50 +17,38 @@ class Card {
       .cloneNode(true);
     return templateCard;
   }
+
   //метод получения данных из разметки/заполняем карточку данными/
   _setData() {
-    this._newCard.querySelector(".elements__title").textContent = this._name;
-    this._newCard.querySelector(".elements__pic").src = this._picture;
-    this._newCard.querySelector(".elements__pic").alt = this._name;
+    this._newCard
+    .querySelector(".elements__title")
+    .textContent = this._name;
+    this._elementsPic.src = this._picture;
+    this._elementsPic.alt = this._name;
   }
+
   //метод удаление карточки
-  _deliteCard() {
+  _deleteCard() {
     this._newCard.remove();
     this._newCard = null;
   }
+  
   //метод лайка карточки
   _likeCard() {
-    this._newCard
-      .querySelector(".elements__like")
-      .classList.toggle("elements__like-add");
+    this._elementsLike.classList.toggle("elements__like-add");
   }
-  // метод открытия попапа
-  _openImagePopup() {
-    document.querySelector(".popup__img-title").textContent = this._name;
-    document.querySelector(".popup__img-max").src = this._picture;
-    document.querySelector(".popup__img-max").alt = this._name;
-
-    openPopup(popupImgMax); //ошибка
-  }
-
+  
   //метод обработчики событий
   _setEventListeners() {
     this._newCard
       .querySelector(".elements__basket")
-      .addEventListener("click", () => this._deliteCard());
-
-    this._newCard
-      .querySelector(".elements__like")
-      .addEventListener("click", () => this._likeCard());
-
-    this._newCard
-      .querySelector(".elements__pic")
-      .addEventListener("click", () => this._openImagePopup());
+      .addEventListener("click", () => this._deleteCard());
+      this._elementsLike.addEventListener("click", () => this._likeCard());
+      this._elementsPic.addEventListener("click", () => this._openImagePopup(this._name, this._picture));
   }
 
   //публичный метод сбора новой карточки
   createCard() {
-    this._newCard = this._getTemplateCard();
     this._setData();
     this._setEventListeners();
 
