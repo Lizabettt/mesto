@@ -66,9 +66,9 @@ class FormValidator {
       });
     });
   }
-  
+
   //публичный метод
-  disableSubmitButton(){
+  disableSubmitButton() {
     this._buttonSubmit.disabled = true;
   }
   //публичный метод

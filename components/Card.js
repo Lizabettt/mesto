@@ -1,13 +1,13 @@
-class Card {
-  constructor(dataObject, templateSelector, openImagePopup) {
+export default class Card {
+  constructor({ dataObject, templateSelector, handleCardClick }) {
     this._name = dataObject.name;
     this._picture = dataObject.link;
     this._templateSelector = templateSelector;
-    this._openImagePopup = openImagePopup;
+    this._handleCardClick = handleCardClick;
     this._newCard = this._getTemplateCard();
     this._elementsPic = this._newCard.querySelector(".elements__pic");
-    this._elementsLike = this._newCard.querySelector(".elements__like");    
- }
+    this._elementsLike = this._newCard.querySelector(".elements__like");
+  }
 
   //метод возврата разметки карточки /шаблон/
   _getTemplateCard() {
@@ -20,9 +20,7 @@ class Card {
 
   //метод получения данных из разметки/заполняем карточку данными/
   _setData() {
-    this._newCard
-    .querySelector(".elements__title")
-    .textContent = this._name;
+    this._newCard.querySelector(".elements__title").textContent = this._name;
     this._elementsPic.src = this._picture;
     this._elementsPic.alt = this._name;
   }
@@ -32,21 +30,23 @@ class Card {
     this._newCard.remove();
     this._newCard = null;
   }
-  
+
   //метод лайка карточки
   _likeCard() {
     this._elementsLike.classList.toggle("elements__like-add");
-   }
-  
+  }
+
   //метод обработчики событий
   _setEventListeners() {
     this._newCard
       .querySelector(".elements__basket")
       .addEventListener("click", () => this._deleteCard());
-      this._elementsLike.addEventListener("click", () => this._likeCard());
-      this._elementsPic.addEventListener("click", () => this._openImagePopup(this._name, this._picture));
+    this._elementsLike.addEventListener("click", () => this._likeCard());
+    this._elementsPic.addEventListener("click", () =>
+      this._handleCardClick(this._name, this._picture)
+    );
   }
-   //публичный метод сбора новой карточки
+  //публичный метод сбора новой карточки
   createCard() {
     this._setData();
     this._setEventListeners();
@@ -54,4 +54,3 @@ class Card {
     return this._newCard;
   }
 }
-export default Card;
