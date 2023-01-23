@@ -3,7 +3,12 @@ class FormValidator {
   //и ту форму с которой надо работать в формате переменной)
   constructor(dataObject, activeForm) {
     this._dataObject = dataObject;
-    this._activeForm = activeForm;
+    this._activeForm = activeForm; 
+
+    //получаем группу полей с классом popup__input -> делаем массив для метода some
+    this._inputList = Array.from(
+    this._activeForm.querySelectorAll(this._dataObject.inputFormPopup));
+    this._buttonSubmit = this._activeForm.querySelector(this._dataObject.buttonSubmit);
   }
   //метод отображения ошибки
   _showInputError(inputFormPopup, errorMessage) {
@@ -49,13 +54,7 @@ class FormValidator {
   }
   //метод послуать и сделать)
   _setEventListeners() {
-    //получаем группу полей с классом popup__input -> делаем массив для метода some
-    this._inputList = Array.from(
-      this._activeForm.querySelectorAll(this._dataObject.inputFormPopup)
-    );
-    this._buttonSubmit = this._activeForm.querySelector(
-      this._dataObject.buttonSubmit
-    );
+   
     //для неактивного состояния кнопки при открытии попапа -> вызываем тогле...и засовываем туда найденный массив и кнопку
     this._toggleButtonState(this._inputList, this._buttonForm);
     //перебираем массив и для каждого поля выполняем ф-ии в скобках и событии инпут

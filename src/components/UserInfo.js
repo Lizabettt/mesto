@@ -2,7 +2,6 @@ export default class UserInfo {
   constructor(name, about) {
     this._name = name;
     this._about = about;
-    console.log(this._name, this._about);
   }
   getUserInfo() {
     const infoUser = {

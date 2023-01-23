@@ -4,13 +4,10 @@ import FormValidator from "../components/FormValidator.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
-import "./index.css"
+import "./index.css";
 import {
   initialCards,
   validationConfig,
-  popupProfile,
-  popupNewCard,
-  popupImgMax,
   formChangeProfile,
   formAddNewCard,
   nameInput,
@@ -26,17 +23,17 @@ const showСards = new Section(
   {
     items: initialCards,
     renderer: (infoCard) => {
-      const allCards = renderCard(infoCard);
-      showСards.addItem(allCards);
+      const Card = buildCard(infoCard);
+      showСards.addItem(Card);
     },
   },
   cardBox
 );
 
-const popupWithPic = new PopupWithImage(popupImgMax);
+const popupWithPic = new PopupWithImage(".popup_type-img");
 popupWithPic.setEventListeners();
 
-const renderCard = (infoCard) => {
+const buildCard = (infoCard) => {
   const card = new Card({
     dataObject: infoCard,
     templateSelector: "#elements-template",
@@ -51,10 +48,9 @@ showСards.renderItems();
 
 const infoUser = new UserInfo(nameProfile, jobProfile);
 
-const popupFormProfile = new PopupWithForm(popupProfile, (data) => {
+const popupFormProfile = new PopupWithForm(".popup_type-profile", (data) => {
   infoUser.setUserInfo(data);
   popupFormProfile.close();
-  console.log("nsw");
 });
 popupFormProfile.setEventListeners();
 
@@ -65,14 +61,17 @@ const profilePopup = () => {
   popupFormProfile.open();
 };
 
-const popupFormNewCard = new PopupWithForm(popupNewCard, (data) => {
-  const itemCard = {
-    name: data.namePlace,
-    link: data.linkPlace,
-  };
-  showСards.addItem(renderCard(itemCard));
-  popupFormNewCard.close();
-});
+const popupFormNewCard = new PopupWithForm(
+  ".popup_type-add-new-card",
+  (data) => {
+    const itemCard = {
+      name: data.namePlace,
+      link: data.linkPlace,
+    };
+    showСards.addItem(buildCard(itemCard));
+    popupFormNewCard.close();
+  }
+);
 popupFormNewCard.setEventListeners();
 
 btnChangeName.addEventListener("click", profilePopup);

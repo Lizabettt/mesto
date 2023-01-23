@@ -33,10 +33,6 @@ export const validationConfig = {
   errorClassVisible: "popup__error_visible",
 };
 
-export const popupProfile = document.querySelector(".popup_type-profile");
-export const popupNewCard = document.querySelector(".popup_type-add-new-card");
-export const popupImgMax = document.querySelector(".popup_type-img");
-
 export const formChangeProfile = document.querySelector(
   ".popup__form_type-profile"
 );
