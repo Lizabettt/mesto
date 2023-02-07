@@ -1,18 +1,18 @@
 export default class Section {
-  constructor({ items, renderer }, selector) {
-    this._renderedItems = items;
-    // не понимаю пока как это сделать
-    //все решения приводят к поломке
+  constructor({ renderer }, selector) {
     this._renderer = renderer;
     this._container = selector;
   }
 
   addItem(cardData) {
-    this._container.prepend(cardData);
+    this._container.append(cardData);
   }
+  addItemNew(cardData) {
+    this._container.prepend(cardData);
+}
   
-  renderItems() {
-    this._renderedItems.forEach((itemCard) => {
+  renderItems(itemCards) {
+    itemCards.forEach((itemCard) => {
       this._renderer(itemCard);
     });
   }

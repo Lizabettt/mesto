@@ -12,6 +12,8 @@ module.exports = {
     filename: "main.js",
     publicPath: "",
   },
+  //для девтулз, что бы белеберда вместо кода не вылезала
+  devtool: 'eval-source-map',
 
   devServer: {
     static: path.resolve(__dirname, "./dist"),

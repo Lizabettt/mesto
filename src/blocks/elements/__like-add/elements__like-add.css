@@ -1,8 +1,9 @@
 .elements__like-add {
     background-image: url(../../../images/blackHeart.svg);
-    background-color: white;
+    /* background-color: white; */
+    background-repeat: no-repeat;
     min-width: 22px;
-    height: 19px;
+    /* height: 19px; */
     border: none;
     cursor: pointer;
     transition: .6s ease;

@@ -1,6 +1,7 @@
 .elements__like{
     background-image: url(../../../images/serdce.svg);
     background-color: white;
+    background-repeat: no-repeat;
     min-width: 22px;
     height: 19px;
     border: none;

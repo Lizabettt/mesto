@@ -11,11 +11,14 @@
     <header class="header">
       <a href="#" class="header__logo">
         <img class="header__logo-pic" src="<%=require('./images/logo.svg')%>" alt="Логотип" />
-      </a>
-    </header>
-    <main class="main">
-      <section class="profile">
-        <img class="profile__foto" src="<%=require('./images/kusto.jpg')%>" alt="Аватар" />
+        </a>
+        </header>
+        <main class="main">
+          <section class="profile">        
+            <div class="profile__foto-box">              
+              <img class="profile__foto" src="<%=require('./images/kusto.jpg')%>" alt="Аватар" />
+              <div class="profile__foto-btn"></div>
+            </div>
         <div class="profile__name-box">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__change-name" type="button">
@@ -43,7 +46,10 @@
               <button class="elements__basket" type="button"></button>
               <div class="elements__box">
                 <h2 class="elements__title"></h2>
-                <button class="elements__like" type="button"></button>
+                <div class="elements__like-box">
+                  <button class="elements__like" type="button"></button>
+                  <span class="elements__like-span">0</span>
+                </div>
               </div>
             </li>
           </template>
@@ -160,7 +166,60 @@
             alt="Закрыть"
           />
         </button>
-      </figure>
+    </figure>
+    </div>
+
+    <div class="popup popup_type-user-foto">
+      <div class="popup__container">
+        <button class="popup__btn-close" type="button">
+          <img
+            class="popup__btn-close-pic"
+            src="<%=require('./images/Close_Icon.png')%>"
+            alt="Закрыть"
+          />
+        </button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form
+          class="popup__form popup__form_type-add-new-avatar"
+          action="popup__form"
+          name="popup__name"
+          method="post"
+          novalidate
+        >
+          <fieldset class="popup__form-input">
+            <input
+              class="popup__input popup__input_type_avatar"
+              id="popupAvatar"
+              type="text"
+              placeholder="Введите адрес"
+              name="avatar"
+              minlength="2"
+              maxlength="200"
+              required
+              autocomplete="off"
+            />
+            <span class="popup__help popupAvatar-error"></span> 
+            </fieldset>
+          <button class="popup__btn popup__btn-save" type="submit">
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type-delete">
+      <div class="popup__container">
+        <button class="popup__btn-close" type="button">
+          <img
+            class="popup__btn-close-pic"
+            src="<%=require('./images/Close_Icon.png')%>"
+            alt="Закрыть"
+          />
+        </button>
+        <h2 class="popup__title">Вы уверены?</h2>
+        <form class="popup__form popup__form_type-delete-card"> 
+        <button class="popup__btn popup__btn-save" type="submit">Да</button>
+        </form>
+      </div>
     </div>
     <!-- <script type="module" src="./pages/index.js"></script> -->
   </body>

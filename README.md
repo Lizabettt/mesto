@@ -4,13 +4,15 @@
 1. Верстка сайта выполнена для разрешения экрана 1280px и 320px.
 2. Верстка сайта с использованием Flexbox, Grid Layout, и др силами CSS.
 3. Верстка согласно макету предоставленному в Figma.
-[Ссылка на макет в Figma](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0%3A1)
+[Ссылка на макет в Figma](https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript.-Sprint-9?node-id=109%3A75&t=cWuJvHTEuw9pLXTG-0)
 4. Применена файловая структура БЭМ nested.
 5. Верстка является адаптивной и имеет точки перелома с использованием медиазапросов.
 6. Попапы выполнены с использованием JavaScript.
 7. Добавлена валидация попапов.
 8. Использован подход ООП.
 9. Сборка Webpack.​
+10. Проект подключен к серверу когорты.
+
 ​
 ​
 ### Результат работы можно увидеть [тут](https://lizabettt.github.io/mesto/)
