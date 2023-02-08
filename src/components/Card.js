@@ -33,7 +33,7 @@ export default class Card {
   //метод возврата разметки карточки /шаблон/
   _getTemplateCard() {
     const templateCard = document
-      .querySelector("#elements-template")
+      .querySelector(this._templateSelector)
       .content.querySelector(".elements__card")
       .cloneNode(true);
     return templateCard;
@@ -73,12 +73,16 @@ export default class Card {
   }
 
   //ставим лайки?
+  addLikeCard(){
+    this._elementsLike.classList.add("elements__like-add");
+  }
+  removeLikeCard(){
+    this._elementsLike.classList.remove("elements__like-add");
+  }
   setLikes() {
-    if (this._elementsLike.classList.contains("elements__like-add")) {
-      this._elementsLike.classList.remove("elements__like-add");
+    if (this._elementsLike.classList.contains("elements__like-add")) {      
       this._handleRemoveLikeCard(this._idCard);
-    } else {
-      this._elementsLike.classList.add("elements__like-add");
+    } else {      
       this._handleAddLikeCard(this._idCard);
     }
   }

@@ -1,8 +1,8 @@
 export default class UserInfo {
-  constructor(name, about, avatar) {
-    this._name = name;
-    this._about = about;
-    this._avatar = avatar;
+  constructor({nameProfile, jobProfile, avatarProfile}) {
+    this._name = nameProfile;
+    this._about = jobProfile;
+    this._avatar = avatarProfile;
   }
   getUserInfo() {
     const infoUser = {

@@ -32,7 +32,7 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-const infoUser = new UserInfo(nameProfile, jobProfile, avatarProfile);
+const infoUser = new UserInfo({nameProfile, jobProfile, avatarProfile});
 
 //получаем все данные с сервера и показываем на странице
 Promise.all([api.getUserData(), api.getAllCards()]).then(
@@ -87,6 +87,7 @@ const buildCard = (infoCard) => {
       api
         .addLike(idCard)
         .then((arrCard) => {
+          card.addLikeCard();
           card.renderLikes(arrCard.likes);
         })
         .catch((err) => {
@@ -97,6 +98,7 @@ const buildCard = (infoCard) => {
       api
         .removeLike(idCard)
         .then((arrCard) => {
+          card.removeLikeCard();
           card.renderLikes(arrCard.likes);
         })
         .catch((err) => {
@@ -117,7 +119,11 @@ const popupFormProfile = new PopupWithForm(".popup_type-profile", {
       })
       .catch((err) => {
         console.log(err);
-      });
+      })
+      .finally(() => {
+        popupFormProfile.setConservationText("Сохранить");
+        validFormChangeProfile.disableSubmitButton();
+      })
   },
 });
 
@@ -142,7 +148,11 @@ const popupFormNewCard = new PopupWithForm(".popup_type-add-new-card", {
       })
       .catch((err) => {
         console.log(err);
-      });
+      })
+      .finally(() => {
+        popupFormNewCard.setConservationText("Сохранить");
+        validFormAddNewCard.disableSubmitButton();
+      })
   },
 });
 
@@ -156,7 +166,11 @@ const popupFormNewAvatar = new PopupWithForm(".popup_type-user-foto", {
       })
       .catch((err) => {
         console.log(err);
-      });
+      })
+      .finally(() => {
+        popupFormNewAvatar.setConservationText("Сохранить");
+        validFormAddNewAvatar.disableSubmitButton();
+      })
   },
 });
 
