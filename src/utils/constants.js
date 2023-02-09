@@ -18,10 +18,7 @@ export const formChangeAvatar = document.querySelector(
 
 export const nameInput = document.querySelector(".popup__input_type_name");
 export const jobInput = document.querySelector(".popup__input_type_job");
-export const nameProfile = document.querySelector(".profile__title");
-export const jobProfile = document.querySelector(".profile__info");
 export const avatarProfileBtn = document.querySelector(".profile__foto-btn");
-export const avatarProfile = document.querySelector(".profile__foto");
 
 export const btnChangeName = document.querySelector(".profile__change-name");
 export const btnAddCard = document.querySelector(".profile__button-add");

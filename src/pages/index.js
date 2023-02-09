@@ -14,9 +14,6 @@ import {
   formChangeAvatar,
   nameInput,
   jobInput,
-  nameProfile,
-  jobProfile,
-  avatarProfile,
   avatarProfileBtn,
   btnChangeName,
   btnAddCard,
@@ -32,7 +29,11 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-const infoUser = new UserInfo({nameProfile, jobProfile, avatarProfile});
+const infoUser = new UserInfo({
+  nameProfile: ".profile__title",
+  jobProfile: ".profile__info",
+  avatarProfile:".profile__foto"
+});
 
 //получаем все данные с сервера и показываем на странице
 Promise.all([api.getUserData(), api.getAllCards()]).then(
@@ -114,6 +115,7 @@ const popupFormProfile = new PopupWithForm(".popup_type-profile", {
     api
       .changeUserData(data)
       .then((dataProfile) => {
+        validFormChangeProfile.disableSubmitButton();
         infoUser.setUserInfo(dataProfile);
         popupFormProfile.close();
       })
@@ -121,8 +123,7 @@ const popupFormProfile = new PopupWithForm(".popup_type-profile", {
         console.log(err);
       })
       .finally(() => {
-        popupFormProfile.setConservationText("Сохранить");
-        validFormChangeProfile.disableSubmitButton();
+        popupFormProfile.setConservationText("Сохранить");        
       })
   },
 });
@@ -143,6 +144,7 @@ const popupFormNewCard = new PopupWithForm(".popup_type-add-new-card", {
     api
       .createNewCard(itemCard)
       .then((data) => {
+        validFormAddNewCard.disableSubmitButton();
         showСards.addItemNew(buildCard(data)); //перевернули массив
         popupFormNewCard.close();
       })
@@ -150,8 +152,7 @@ const popupFormNewCard = new PopupWithForm(".popup_type-add-new-card", {
         console.log(err);
       })
       .finally(() => {
-        popupFormNewCard.setConservationText("Сохранить");
-        validFormAddNewCard.disableSubmitButton();
+        popupFormNewCard.setConservationText("Создать");        
       })
   },
 });
@@ -161,6 +162,7 @@ const popupFormNewAvatar = new PopupWithForm(".popup_type-user-foto", {
     api
       .changeAvatar(data)
       .then((dataAva) => {
+        validFormAddNewAvatar.disableSubmitButton();
         infoUser.setUserAvatar(dataAva);
         popupFormNewAvatar.close();
       })
@@ -168,8 +170,7 @@ const popupFormNewAvatar = new PopupWithForm(".popup_type-user-foto", {
         console.log(err);
       })
       .finally(() => {
-        popupFormNewAvatar.setConservationText("Сохранить");
-        validFormAddNewAvatar.disableSubmitButton();
+        popupFormNewAvatar.setConservationText("Сохранить");        
       })
   },
 });
