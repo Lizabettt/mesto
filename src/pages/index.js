@@ -115,7 +115,6 @@ const popupFormProfile = new PopupWithForm(".popup_type-profile", {
     api
       .changeUserData(data)
       .then((dataProfile) => {
-        validFormChangeProfile.disableSubmitButton();
         infoUser.setUserInfo(dataProfile);
         popupFormProfile.close();
       })
@@ -128,13 +127,6 @@ const popupFormProfile = new PopupWithForm(".popup_type-profile", {
   },
 });
 
-const profilePopup = () => {
-  const profileInfo = infoUser.getUserInfo();
-  nameInput.value = profileInfo.name;
-  jobInput.value = profileInfo.about;
-  popupFormProfile.open();
-};
-
 const popupFormNewCard = new PopupWithForm(".popup_type-add-new-card", {
   submitForm: (data) => {
     const itemCard = {
@@ -143,8 +135,7 @@ const popupFormNewCard = new PopupWithForm(".popup_type-add-new-card", {
     };
     api
       .createNewCard(itemCard)
-      .then((data) => {
-        validFormAddNewCard.disableSubmitButton();
+      .then((data) => {        
         showСards.addItemNew(buildCard(data)); //перевернули массив
         popupFormNewCard.close();
       })
@@ -161,8 +152,7 @@ const popupFormNewAvatar = new PopupWithForm(".popup_type-user-foto", {
   submitForm: (data) => {
     api
       .changeAvatar(data)
-      .then((dataAva) => {
-        validFormAddNewAvatar.disableSubmitButton();
+      .then((dataAva) => {        
         infoUser.setUserAvatar(dataAva);
         popupFormNewAvatar.close();
       })
@@ -179,12 +169,20 @@ popupFormProfile.setEventListeners();
 popupFormNewCard.setEventListeners();
 popupFormNewAvatar.setEventListeners();
 
-btnChangeName.addEventListener("click", profilePopup);
+btnChangeName.addEventListener("click", () => {
+  validFormChangeProfile.disableSubmitButton();
+  const profileInfo = infoUser.getUserInfo();  
+  nameInput.value = profileInfo.name; 
+  jobInput.value = profileInfo.about;  
+  popupFormProfile.open();
+});
 btnAddCard.addEventListener("click", () => {
-  popupFormNewCard.open();
+  validFormAddNewCard.disableSubmitButton(),
+  popupFormNewCard.open()  
 });
 avatarProfileBtn.addEventListener("click", () => {
-  popupFormNewAvatar.open();
+  validFormAddNewAvatar.disableSubmitButton(),
+  popupFormNewAvatar.open()  
 });
 
 const validFormAddNewAvatar = new FormValidator(
